@@ -1,0 +1,18 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h1>Usuario</h1>
+
+Ingrese sus Datos:
+<br>
+<form action="" method="post">{% csrf_token %}
+    <table>
+        {{miFormulario3.as_table}}
+    </table>
+    <input type="submit",value="Enviar">
+</form>
+
+{% endblock %}
