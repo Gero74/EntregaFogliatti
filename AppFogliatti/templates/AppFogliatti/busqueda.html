@@ -5,9 +5,9 @@
 {% block contenidoQueCambia %}
 
 <br>
-<form action="/AppFogliatti/buscar/" method= "post">{% csrf_token %}
+<form action="/AppFogliatti/buscar/" method= "get">{% csrf_token %}
     
-    <input type="text",name="nombre" id="nombre">
+    <input type="text" name="nombre" id="nombre">
     <input type="submit" value="buscar">
 </form>
 
