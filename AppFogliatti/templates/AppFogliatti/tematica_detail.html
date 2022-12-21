@@ -1,0 +1,13 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+Nombre_Tema: {{tematica.nombre_tema}}
+Autor: {{tematica.autor}}
+Codigo: {{tematica.codigo}}
+
+<a href="{%url 'List'%}">Regresar</a>
+
+{% endblock %}

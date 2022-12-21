@@ -82,4 +82,102 @@ def tematicaapi(request):
 def contactoapi(request):
     contacto_todos = Contacto.objects.all()
     return HttpResponse(serializers.serialize("json",contacto_todos))
+
+
+def leer_tematica(request):
+    tematica_all = Tematica.objects.all()
+    return HttpResponse(serializers.serialize("json",tematica_all))
+
+def crear_tematica(request):
+    tematica = Tematica(nombre_tema="TematicaTest",autor ="Gero",codigo=123)
+    tematica.save()
+    return HttpResponse(f"Tematica {tematica.nombre_tema} ha sido creado")
+
+def editar_tematica(request):
+    nombre_consulta="TematicaTest"
+    Tematica.objects.filter(nombre_tema=nombre_consulta).update(nombre_tema="nombrenuevoTematicaTest")
+    return HttpResponse(f"Tematica {nombre_consulta} ha sido editado")
+
+
+def eliminar_tematica(request):
+    nombre_nuevo="nombrenuevoTematicaTest"
+    tematica=Tematica.objects.filter(nombre_tema=nombre_nuevo)
+    tematica.delete()            
+    return HttpResponse(f"Tematica {nombre_nuevo} ha sido eliminado")
+
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView 
+
+class Tematicalist(ListView):
+    model = Tematica
+    template = "AppFogliatti/tematica_list.html"
+
+class TematicaCreate(CreateView):
+    model = Tematica
+    fields = "__all__"
+    success_url = "/AppFogliatti/tematica/list/"
+
+class TematicaEdit(UpdateView):
+    model = Tematica
+    fields = "__all__"
+    success_url = "/AppFogliatti/tematica/list/"
+    
+from django.views.generic import DetailView
+
+class TematicaDetail(DetailView):
+    model = Tematica
+    template_name = "AppFogliatti/tematica_detail.html"
+
+class TematicaDelete(DeleteView):
+    model = Tematica
+    #fields = "__all__"
+    success_url = "/AppFogliatti/tematica/list/"
+
+
+class Contactolist(ListView):
+    model = Contacto
+    template = "AppFogliatti/contacto_list.html"
+
+class ContactoCreate(CreateView):
+    model = Contacto
+    fields = "__all__"
+    success_url = "/AppFogliatti/contacto/list/"
+
+class ContactoEdit(UpdateView):
+    model = Contacto
+    fields = "__all__"
+    success_url = "/AppFogliatti/contacto/list/"
+
+class ContactoDetail(DetailView):
+    model = Contacto
+    template_name = "AppFogliatti/contacto_detail.html"
+
+class ContactoDelete(DeleteView):
+    model = Contacto
+    #fields = "__all__"
+    success_url = "/AppFogliatti/contacto/list/"
+    
+
+class Usuariolist(ListView):
+    model = Usuario
+    template = "AppFogliatti/Usuario_list.html"
+
+class UsuarioCreate(CreateView):
+    model = Usuario
+    fields = "__all__"
+    success_url = "/AppFogliatti/usuario/list/"
+
+class UsuarioEdit(UpdateView):
+    model = Usuario
+    fields = "__all__"
+    success_url = "/AppFogliatti/usuario/list/"
+
+class UsuarioDetail(DetailView):
+    model = Usuario
+    template_name = "AppFogliatti/usuario_detail.html"
+
+class UsuarioDelete(DeleteView):
+    model = Usuario
+    #fields = "__all__"
+    success_url = "/AppFogliatti/usuario/list/"
     

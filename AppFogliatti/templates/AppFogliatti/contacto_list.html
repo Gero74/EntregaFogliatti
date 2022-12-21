@@ -1,0 +1,20 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h3>Contactos</h3>
+    <ul>
+        {% for contacto in object_list%}
+            <p>{{contacto.nombre}}</p>
+                <a href="{%url 'DetailContacto' contacto.id %}">Ver</a>
+                <a href="{%url 'EditContacto' contacto.id %}">Editar</a>
+                <a href="{%url 'DeleteContacto' contacto.id %}">Borrar</a>
+            </p>
+        {%endfor%}
+    </ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<form method="post">{%csrf_token %}
+    Estas seguro que deseas borrar la tematica?: {{ object.nombre_tema }}
+    <input type="submit" value="Eliminar">
+</form>
+
+{% endblock %}

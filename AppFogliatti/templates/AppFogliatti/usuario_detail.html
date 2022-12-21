@@ -1,0 +1,13 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+Nombre: {{usuario.nombre}}
+Correo: {{usuario.correo}}
+Nacionalidad: {{usuario.nacionalidad}}
+
+<a href="{%url 'ListUsuario'%}">Regresar</a>
+
+{% endblock %}
