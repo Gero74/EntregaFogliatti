@@ -32,7 +32,7 @@ def contacto(request):
             informacion = miFormulario2.cleaned_data
             tematica = Contacto(nombre=informacion["nombre"], correo=informacion["correo"], descripcion=informacion["descripcion"])
             tematica.save()
-            return render(request, "AppFogliatti/contacto.html")
+            return render(request, "AppFogliatti/inicio.html")
     
     else:
         miFormulario2 = ContactoFormulario()
@@ -67,7 +67,7 @@ def usuario(request):
             informacion = miFormulario3.cleaned_data
             tematica = Usuario(nombre=informacion["nombre"], correo=informacion["correo"], nacionalidad=informacion["nacionalidad"])
             tematica.save()
-            return render(request, "AppFogliatti/usuario.html")
+            return render(request, "AppFogliatti/inicio.html")
     
     else:
         miFormulario3 = UsuarioFormulario()
