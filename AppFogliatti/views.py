@@ -12,8 +12,9 @@ from AppFogliatti.forms import UsuarioFormulario
 # Create your views here.
 def buscar(request):
     print(request.GET)
-    nombre= request.GET["nombre"]
-    return HttpResponse(f"Estoy buscando el nombre: {nombre}")
+    codigo_views= request.GET["codigo"]
+    tematicas_todas = Tematica.objects.filter(codigo=codigo_views)
+    return render(request,"AppFogliatti/resultadotematica.html",{"codigo":codigo_views,"tematica":tematicas_todas})
 
 def buscartematica(request):
     return render(request,"AppFogliatti/busqueda.html")

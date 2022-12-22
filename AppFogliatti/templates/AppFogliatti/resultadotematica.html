@@ -1,0 +1,18 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+Codigo : {{codigo}}
+<br>
+Tematicas : 
+{%for tematica in tematica%}
+    {{tematica.nombre_tema}}
+    <br>
+Autor:    
+    {{tematica.autor}}
+    <br>
+{%endfor%}
+
+{% endblock %}
