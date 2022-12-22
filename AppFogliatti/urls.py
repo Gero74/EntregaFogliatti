@@ -11,6 +11,8 @@ urlpatterns = [
     path('contactoApi/', views.contactoapi),
     path('busqueda/', views.buscartematica),
     path('buscar/', views.buscar),
+    path('busquedacontacto/', views.buscarcontacto),
+    path('buscar2/', views.buscar2),
     path('leerTematica/', views.leer_tematica),
     path('crearTematica/', views.crear_tematica),
     path('editarTematica/', views.editar_tematica),

@@ -16,8 +16,18 @@ def buscar(request):
     tematicas_todas = Tematica.objects.filter(codigo=codigo_views)
     return render(request,"AppFogliatti/resultadotematica.html",{"codigo":codigo_views,"tematica":tematicas_todas})
 
+def buscarcontacto(request):
+    return render(request,"AppFogliatti/busquedacontacto.html")
+
+def buscar2(request):
+    print(request.GET)
+    nombre_views= request.GET["nombre"]
+    contacto_todos = Contacto.objects.filter(nombre=nombre_views)
+    return render(request,"AppFogliatti/resultadocontacto.html",{"nombre":nombre_views,"contacto":contacto_todos})
+
 def buscartematica(request):
     return render(request,"AppFogliatti/busqueda.html")
+
 
 
 def inicio(request):

@@ -1,0 +1,18 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<br>
+Contactos : 
+{%for contacto in contacto%}
+    {{contacto.nombre}}
+    <br>
+Correo:    
+    {{contacto.correo}}
+    <br>
+{%endfor%}
+
+{% endblock %}
