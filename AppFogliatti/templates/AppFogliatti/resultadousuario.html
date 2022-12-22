@@ -1,0 +1,18 @@
+{% extends "AppFogliatti/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<br>
+Usuarios : 
+{%for usuario in usuario%}
+    {{usuario.nombre}}
+    <br>
+Correo:    
+    {{usuario.correo}}
+    <br>
+{%endfor%}
+
+{% endblock %}

@@ -26,7 +26,26 @@ def buscar2(request):
     return render(request,"AppFogliatti/resultadocontacto.html",{"nombre":nombre_views,"contacto":contacto_todos})
 
 def buscartematica(request):
-    return render(request,"AppFogliatti/busqueda.html")
+    return render(request,"AppFogliatti/busquedatematica.html")
+
+def buscarusuario(request):
+    return render(request,"AppFogliatti/busquedausuario.html")
+
+def buscar3(request):
+    print(request.GET)
+    nombre_views= request.GET["nombre"]
+    usuario_todos = Contacto.objects.filter(nombre=nombre_views)
+    return render(request,"AppFogliatti/resultadousuario.html",{"nombre":nombre_views,"usuario":usuario_todos})
+
+
+
+
+
+
+
+
+
+
 
 
 
